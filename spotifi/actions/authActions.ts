@@ -195,7 +195,7 @@ export const login = async (prevState: LoginState, formData: FormData): Promise<
         secure: true,
     });
 
-    redirect("/dashboard");
+    redirect("/songs");
 
     return {
         success: true,

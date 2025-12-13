@@ -5,20 +5,22 @@ export interface User {
     credits: number;
     avatar: string;
     passwordHash: string;
-    library: string[];
+    library: number[];
 }
 
 
 export interface Song {
-    video_id: string;
+    id: number;
     title: string;
     description: string;
+    thumbnail: string;
     credits: number;
-    link: string;
+    mp3: string;
+    owned?: boolean;
     more_information: {
         publish_date: string;
         genre: string;
         type: string;
+        youtube: string;
     };
 }
-

@@ -19,3 +19,7 @@ export const createUser = async (user: Omit<User, "id">): Promise<void> => {
     const userWithId: User = { id: newId, ...user };
     await userCollection.insertOne(userWithId);
 }
+
+export const updateUser = async (id: number, updates: Partial<User>): Promise<void> => {
+    await userCollection.updateOne({ id }, { $set: updates });
+}

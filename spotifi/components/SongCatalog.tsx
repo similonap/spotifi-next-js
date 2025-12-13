@@ -1,25 +1,26 @@
-import { getAllSongs } from "@/database/store";
-import { Song } from "@/types";
-import Image from "next/image";
 
-const AllSongsView = async() => {
-    let songs: Song[] = await getAllSongs();
+import { Song } from "@/types";
+import { getAllSongsWithOwnership } from "@/actions/storeActions";
+import SongView from "./SongView";
+
+interface SongCatalogProps {
+    q: string;
+}
+
+const SongCatalog = async({q} : SongCatalogProps) => {
+
+    let songs: Song[] = await getAllSongsWithOwnership(q);
+    
 
     return (
-        <div className="p-4">   
-            <h1 className="text-2xl font-bold mb-4">All Songs</h1>
-            <ul className="space-y-4">
+        <div>   
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
                 {songs.map((song) => (
-                    <li key={song.video_id} className="p-4 border border-gray-300 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                        <Image src={`/thumbnails/${song.video_id}.jpg`} alt={song.title} width={200} height={200} className="mb-2 rounded"/>
-                        <h2 className="text-xl font-semibold">{song.title}</h2>
-                        <p className="text-gray-600">{song.description}</p>
-                        <p className="text-sm text-gray-500">Credits: {song.credits}</p>
-                    </li>
+                    <SongView song={song} key={song.id} />
                 ))}
-            </ul>
+            </div>
         </div>
     )
 };
 
-export default AllSongsView;
+export default SongCatalog;
