@@ -2,7 +2,7 @@ import PaginationSkeleton from "./PaginationSkeleton";
 import SongViewSkeleton from "./SongViewSkeleton";
 
 const SongCatalogSkeleton = () => {
-    const placeholders = Array.from({ length: 30 });
+    const placeholders = Array.from({ length: 10 });
 
     return (
         <div>

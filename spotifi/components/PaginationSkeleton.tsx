@@ -2,7 +2,7 @@ interface PaginationSkeletonProps {
     pageCount?: number;
 }
 
-const PaginationSkeleton = ({ pageCount = 5 }: PaginationSkeletonProps) => {
+const PaginationSkeleton = ({ pageCount = 3 }: PaginationSkeletonProps) => {
     return (
         <div className="mx-auto mt-6 flex max-w-2xl items-center justify-center gap-2 rounded-full bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 p-[1px] shadow-lg shadow-black/50 m-4">
             <div className="flex w-full items-center justify-center rounded-full bg-neutral-950/80 px-2 py-2 backdrop-blur">
