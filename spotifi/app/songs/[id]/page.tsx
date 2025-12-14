@@ -9,14 +9,11 @@ const SongsDetail = async (props: PageProps<"/songs/[id]">) => {
     const params = await props.params;
     let id = parseInt(params.id);
 
-    const song = await getSongById(id);
+    const user = await getCurrentUser();
+    const song = await getSongById(id, user?.id || null);
     if (!song) {
         notFound();
     }
-
-    const user = await getCurrentUser();
-    const owned = user ? user.library.includes(song.id) : false;
-    song.owned = owned;
 
     const youtubeId = song.more_information.youtube.includes("v=") 
         ? song.more_information.youtube.split("v=")[1].split("&")[0]
@@ -38,8 +35,8 @@ const SongsDetail = async (props: PageProps<"/songs/[id]">) => {
                                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
                                 <PlayButton song={song} />
-                                {!owned && <BuyButton songId={song.id} price={song.credits} />}
-                                {owned && (
+                                {!song.owned && <BuyButton songId={song.id} price={song.credits} />}
+                                {song.owned && (
                                     <div className="absolute top-4 left-4 z-10 rounded-full bg-emerald-500 px-4 py-2 text-sm font-bold text-black shadow-lg">
                                         ✓ Owned
                                     </div>

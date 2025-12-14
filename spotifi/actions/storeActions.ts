@@ -12,7 +12,7 @@ export const buySong = async (songId: number) => {
     if (!user) {
         throw new Error("You must be logged in to buy a song");
     }
-    const song = await getSongById(songId);
+    const song = await getSongById(songId, user.id);
     if (!song) {
         throw new Error("Song not found");
     }
