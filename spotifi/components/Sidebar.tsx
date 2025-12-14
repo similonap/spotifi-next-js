@@ -1,6 +1,7 @@
 "use client";
 
 import { logout } from "@/actions/authActions";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const Sidebar = () => {
@@ -28,7 +29,7 @@ const Sidebar = () => {
             </div>
 
             <nav className="flex-1 flex flex-col gap-2">
-                <a
+                <Link
                     href="/songs"
                     className="flex items-center gap-3 rounded-lg px-4 py-3 text-neutral-400 transition hover:bg-neutral-800 hover:text-white"
                 >
@@ -47,7 +48,7 @@ const Sidebar = () => {
                         <circle cx="18" cy="16" r="3" />
                     </svg>
                     Songs
-                </a>
+                </Link>
             </nav>
 
             <div className="mt-auto">
