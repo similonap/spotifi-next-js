@@ -1,5 +1,6 @@
 import { Song } from "@/types";
 import SongImageView from "./SongImageView";
+import Link from "next/link";
 
 interface SongViewProps {
     song: Song;
@@ -7,6 +8,7 @@ interface SongViewProps {
 
 const SongView = ({ song }: SongViewProps) => {
     return (
+        <Link href={`/songs/${song.id}`}>
         <div key={song.id} className="bg-[#181818] p-4 rounded-lg hover:bg-[#282828] transition-colors duration-300 cursor-pointer group">
             <div className="relative mb-4">
                 <SongImageView song={song} />
@@ -18,6 +20,7 @@ const SongView = ({ song }: SongViewProps) => {
                 <span>{new Date(song.more_information.publish_date).getFullYear()}</span>
             </div>
         </div>
+        </Link>
     )
 }
 

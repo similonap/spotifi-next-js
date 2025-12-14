@@ -29,7 +29,7 @@ const Pagination = ({ pageCount, currentPage }: PaginationProps) => {
                                 isActive
                                     ? 'bg-emerald-500 text-black'
                                     : 'bg-neutral-800 text-neutral-300 hover:bg-neutral-700'
-                            } inline-flex h-9 min-w-9 items-center justify-center rounded-full px-3 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400`}
+                            } inline-flex h-9 min-w-9 items-center justify-center rounded-full px-3 mr-2 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400`}
                             aria-current={isActive ? 'page' : undefined}
                         >
                             {page}
