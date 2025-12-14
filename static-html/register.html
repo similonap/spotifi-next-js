@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex min-h-screen items-center justify-center bg-gradient-to-b from-[#1e1e1e] to-[#121212] p-6 text-white">
+  <div class="w-full max-w-md overflow-hidden rounded-2xl bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 p-[1px] shadow-2xl shadow-black/60">
+    <div class="rounded-2xl bg-neutral-950/80 p-6 backdrop-blur">
+      <h2 class="text-2xl font-bold">Create an account</h2>
+      <p class="mt-1 text-sm text-neutral-400">Enter your details below to create your account</p>
+    </div>
+    <div class="p-6">
+      <form class="space-y-4">
+        <div class="space-y-2">
+          <label for="name" class="block text-sm font-medium text-neutral-300">Name</label>
+          <input class="flex h-11 w-full rounded-lg border border-neutral-700 bg-neutral-900/60 px-4 py-2 text-sm text-white placeholder:text-neutral-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500" id="name" name="name" type="text" placeholder="John Doe" />
+        </div>
+        <div class="space-y-2">
+          <label for="email" class="block text-sm font-medium text-neutral-300">Email</label>
+          <input class="flex h-11 w-full rounded-lg border border-neutral-700 bg-neutral-900/60 px-4 py-2 text-sm text-white placeholder:text-neutral-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500" id="email" name="email" type="email" placeholder="m@example.com" />
+        </div>
+        <div class="space-y-2">
+          <label for="password" class="block text-sm font-medium text-neutral-300">Password</label>
+          <input class="flex h-11 w-full rounded-lg border border-neutral-700 bg-neutral-900/60 px-4 py-2 text-sm text-white placeholder:text-neutral-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500" id="password" name="password" type="password" placeholder="Your password" />
+        </div>
+        <div class="space-y-2">
+          <label for="confirmPassword" class="block text-sm font-medium text-neutral-300">Confirm Password</label>
+          <input class="flex h-11 w-full rounded-lg border border-neutral-700 bg-neutral-900/60 px-4 py-2 text-sm text-white placeholder:text-neutral-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500" id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm your password" />
+        </div>
+        <div class="pt-2">
+          <button class="inline-flex h-11 w-full items-center justify-center rounded-full bg-emerald-500 px-5 text-sm font-semibold text-black transition hover:bg-emerald-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400" type="submit">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
