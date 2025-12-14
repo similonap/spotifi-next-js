@@ -6,7 +6,6 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import crypto from "crypto";
 
 const validateEmail = (email: string) => {
     const errors: string[] = [];
@@ -224,6 +223,7 @@ export const getCurrentUser = async (): Promise<User> => {
         }
         return user;
     } catch (e) {
+        console.error(e);
         throw new Error("Invalid token");
     }
 

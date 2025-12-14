@@ -1,16 +1,17 @@
 "use server";
 
 import { getCurrentUser } from "./authActions";
-import { getAllSongs, getSongById } from "@/database/store";
+import { getSongs as getSongsFromDb, getSongById } from "@/database/store";
 import { updateUser } from "@/database/auth";
 import { revalidatePath } from "next/cache";
+import { SortField } from "@/types";
+import { SortDirection } from "mongodb";
 
 export const buySong = async (songId: number) => {
     const user = await getCurrentUser();
     if (!user) {
         throw new Error("You must be logged in to buy a song");
     }
-    console.log("User attempting to buy song:", user.id, songId);
     const song = await getSongById(songId);
     if (!song) {
         throw new Error("Song not found");
@@ -34,16 +35,14 @@ export const buySong = async (songId: number) => {
 }
 
 
-export const getAllSongsWithOwnership = async (q: string = "") => {
-    const songs = await getAllSongs(q);
+export const getSongs = async (
+    q: string = "",
+    sortField: SortField,
+    sortDirection: SortDirection,
+    page: number
+) => {
     const user = await getCurrentUser();
-
-    if (!user) {
-        return songs;
-    }
-
-    return songs.map(song => ({
-        ...song,
-        owned: user.library.includes(song.id),
-    }));
+    const userId = user ? user.id : null;
+    const songs = await getSongsFromDb(userId, q, sortField, sortDirection, page);
+    return songs;
 }

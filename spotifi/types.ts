@@ -24,3 +24,7 @@ export interface Song {
         youtube: string;
     };
 }
+
+
+export type SortField = "title" | "owned" | "publish_date";
+export type SortDirection = "asc" | "desc";
