@@ -5,7 +5,7 @@ import { useActionState } from "react";
 
 
 export default function BillingPage() {
-    const [state, buyCreditsAction, pending] = useActionState(buyCredits, {success: false})
+    const [state, buyCreditsAction, pending] = useActionState(buyCredits, {success: false, error: ""})
 
 
     return (
