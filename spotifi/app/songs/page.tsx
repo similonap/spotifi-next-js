@@ -31,7 +31,7 @@ export default async function Page(props: PageProps<"/songs">) {
                 </div>
             </div>
 
-            <Suspense fallback={<SongCatalogSkeleton />}>
+            <Suspense key={`song-catalog-${q}-${sortField}-${sortDirection}-${page}`} fallback={<SongCatalogSkeleton />}>
                 <SongCatalog q={q} sortDirection={sortDirection} sortField={sortField} page={page} />
             </Suspense>
         </main>

@@ -30,6 +30,8 @@ export const getSongs = async (
   page: number = 1
 ) => { 
     
+    // await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate network delay
+
     const pipeline: any[] = [];
 
     if (q) {

@@ -35,6 +35,7 @@ const BuyButton = ({ songId, price }: BuyButtonProps) => {
             onMouseLeave={() => setIsHovered(false)}
             onClick={handleBuy}
         >
+            
             {isLoading ? "Buying..." : (isHovered ? "Buy" : `${price} credits`)}
         </div>
     );
