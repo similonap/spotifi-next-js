@@ -18,15 +18,15 @@ const RegisterPage = () => {
     });
 
     return (
-        <div className="flex flex-col flex-1 justify-center items-center min-h-screen bg-gray-50">
-            <div className="max-w-md w-full mx-auto bg-white shadow-md rounded-lg overflow-hidden border border-gray-200">
-                <div className="p-6 border-b border-gray-200">
-                    <h2 className="text-2xl font-bold text-gray-900">Create an account</h2>
-                    <p className="mt-1 text-sm text-gray-600">
+        <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-[#1e1e1e] to-[#121212] p-6 text-white">
+            <div className="w-full max-w-md overflow-hidden rounded-2xl bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 p-[1px] shadow-2xl shadow-black/60">
+                <div className="rounded-2xl bg-neutral-950/80 p-6 backdrop-blur">
+                    <h2 className="text-2xl font-bold">Create an account</h2>
+                    <p className="mt-1 text-sm text-neutral-400">
                         Enter your details below to create your account
                     </p>
                     {state.errors.general.length > 0 && (
-                        <p className="text-sm text-red-600 mt-2">
+                        <p className="mt-2 text-sm text-red-500">
                             {state.errors.general.join(", ")}
                         </p>
                     )}
@@ -34,9 +34,9 @@ const RegisterPage = () => {
                 <div className="p-6">
                     <form action={registerAction} className="space-y-4">
                         <div className="space-y-2">
-                            <label htmlFor="name" className={`block text-sm font-medium ${state.errors.name.length > 0 ? 'text-red-500' : 'text-gray-700'}`}>Name</label>
+                            <label htmlFor="name" className={`block text-sm font-medium ${state.errors.name.length > 0 ? 'text-red-500' : 'text-neutral-300'}`}>Name</label>
                             <input
-                                className={`flex h-10 w-full rounded-md border bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${state.errors.name.length > 0 ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
+                                className={`flex h-11 w-full rounded-lg border px-4 py-2 text-sm text-white placeholder:text-neutral-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 disabled:cursor-not-allowed disabled:opacity-50 bg-neutral-900/60 ${state.errors.name.length > 0 ? 'border-red-500' : 'border-neutral-700'}`}
                                 id="name"
                                 name="name"
                                 type="text"
@@ -44,15 +44,15 @@ const RegisterPage = () => {
                                 placeholder="John Doe"
                             />
                             {state.errors.name.length > 0 && (
-                                <p className="text-xs text-red-600 mt-1">
+                                <p className="mt-1 text-xs text-red-500">
                                     {state.errors.name.join(", ")}
                                 </p>
                             )}
                         </div>
                         <div className="space-y-2">
-                            <label htmlFor="email" className={`block text-sm font-medium ${state.errors.email.length > 0 ? 'text-red-500' : 'text-gray-700'}`}>Email</label>
+                            <label htmlFor="email" className={`block text-sm font-medium ${state.errors.email.length > 0 ? 'text-red-500' : 'text-neutral-300'}`}>Email</label>
                             <input
-                                className={`flex h-10 w-full rounded-md border bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${state.errors.email.length > 0 ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
+                                className={`flex h-11 w-full rounded-lg border px-4 py-2 text-sm text-white placeholder:text-neutral-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 disabled:cursor-not-allowed disabled:opacity-50 bg-neutral-900/60 ${state.errors.email.length > 0 ? 'border-red-500' : 'border-neutral-700'}`}
                                 id="email"
                                 name="email"
                                 type="text"
@@ -60,37 +60,37 @@ const RegisterPage = () => {
                                 placeholder="m@example.com"
                             />
                             {state.errors.email.length > 0 && (
-                                <p className="text-xs text-red-600 mt-1">
+                                <p className="mt-1 text-xs text-red-500">
                                     {state.errors.email.join(", ")}
                                 </p>
                             )}
                         </div>
                         <div className="space-y-2">
-                            <label htmlFor="password" className={`block text-sm font-medium ${state.errors.password.length > 0 ? 'text-red-500' : 'text-gray-700'}`}>Password</label>
+                            <label htmlFor="password" className={`block text-sm font-medium ${state.errors.password.length > 0 ? 'text-red-500' : 'text-neutral-300'}`}>Password</label>
                             <input
-                                className={`flex h-10 w-full rounded-md border bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${state.errors.password.length > 0 ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
+                                className={`flex h-11 w-full rounded-lg border px-4 py-2 text-sm text-white placeholder:text-neutral-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 disabled:cursor-not-allowed disabled:opacity-50 bg-neutral-900/60 ${state.errors.password.length > 0 ? 'border-red-500' : 'border-neutral-700'}`}
                                 id="password"
                                 name="password"
                                 type="password"
                                 placeholder="Your password"
                             />
                             {state.errors.password.length > 0 && (
-                                <p className="text-xs text-red-600 mt-1">
+                                <p className="mt-1 text-xs text-red-500">
                                     {state.errors.password.join(", ")}
                                 </p>
                             )}
                         </div>
                         <div className="space-y-2">
-                            <label htmlFor="confirmPassword" className={`block text-sm font-medium ${state.errors.confirmPassword.length > 0 ? 'text-red-500' : 'text-gray-700'}`}>Confirm Password</label>
+                            <label htmlFor="confirmPassword" className={`block text-sm font-medium ${state.errors.confirmPassword.length > 0 ? 'text-red-500' : 'text-neutral-300'}`}>Confirm Password</label>
                             <input
-                                className={`flex h-10 w-full rounded-md border bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${state.errors.confirmPassword.length > 0 ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 focus:ring-blue-500'}`}
+                                className={`flex h-11 w-full rounded-lg border px-4 py-2 text-sm text-white placeholder:text-neutral-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 disabled:cursor-not-allowed disabled:opacity-50 bg-neutral-900/60 ${state.errors.confirmPassword.length > 0 ? 'border-red-500' : 'border-neutral-700'}`}
                                 id="confirmPassword"
                                 name="confirmPassword"
                                 type="password"
                                 placeholder="Confirm your password"
                             />
                             {state.errors.confirmPassword.length > 0 && (
-                                <p className="text-xs text-red-600 mt-1">
+                                <p className="mt-1 text-xs text-red-500">
                                     {state.errors.confirmPassword.join(", ")}
                                 </p>
                             )}
@@ -99,7 +99,7 @@ const RegisterPage = () => {
                             <button 
                                 type="submit" 
                                 disabled={pending}
-                                className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 w-full bg-black text-white hover:bg-gray-800"
+                                className="inline-flex h-11 w-full items-center justify-center rounded-full bg-emerald-500 px-5 text-sm font-semibold text-black transition hover:bg-emerald-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400 disabled:opacity-50"
                             >
                                 {pending ? "Creating account..." : "Register"}
                             </button>

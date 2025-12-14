@@ -1,17 +1,17 @@
 import { Collection, MongoClient, SortDirection } from "mongodb";
-import { Song, SortField } from "@/types"
+import { Song, SortField, User } from "@/types"
 
 export const PAGE_SIZE = 10;
 
 const client = new MongoClient(process.env.MONGODB_URI!);
 
 export const songsCollection: Collection<Song> = client.db("spotifi").collection<Song>("songs");
+export const usersCollection: Collection<User> = client.db("spotifi").collection<User>("users");
 
 export const seedSongs = async () => {
 
     const response = await fetch("https://sampleapis.assimilate.be/music/songs");
     const data: Song[] = await response.json();
-
 
     let songs: Song[] = data;
     await songsCollection.deleteMany({});
@@ -123,3 +123,8 @@ export const getSongById = async (songId: number, userId: number | null = null):
 const makeLean = <T,>(obj: any): T => {
     return JSON.parse(JSON.stringify(obj)) as T;
 }
+
+export const addCoinsToUser = async (userId: number, coins: number): Promise<void> => {
+    await usersCollection.updateOne({ id: userId }, { $inc: { credits: coins } });
+}
+

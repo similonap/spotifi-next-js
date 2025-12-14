@@ -1,11 +1,13 @@
 "use server";
 
 import { getCurrentUser } from "./authActions";
-import { getSongs as getSongsFromDb, getSongById } from "@/database/store";
+import { getSongs as getSongsFromDb, getSongById, addCoinsToUser } from "@/database/store";
 import { updateUser } from "@/database/auth";
 import { revalidatePath } from "next/cache";
 import { SortField } from "@/types";
 import { SortDirection } from "mongodb";
+import { redirect } from "next/navigation";
+
 
 export const buySong = async (songId: number) => {
     const user = await getCurrentUser();
@@ -45,4 +47,32 @@ export const getSongs = async (
     const userId = user ? user.id : null;
     const songs = await getSongsFromDb(userId, q, sortField, sortDirection, page);
     return songs;
+}
+
+interface BuyCreditsState {
+    success: boolean;
+    error: string;
+}
+
+export const buyCredits = async(prevState: BuyCreditsState, formData: FormData): Promise<BuyCreditsState> => {
+    const currentUser = await getCurrentUser();
+
+    const amount = parseInt(formData.get("amount")?.toString() || "0");
+
+    if (amount >= 500) {
+        return { 
+            error: "Balance limit exceeded. You can only buy up to 500 credits at a time.",
+            success: false
+        }
+    }
+
+    await addCoinsToUser(currentUser!.id, amount);
+
+    revalidatePath("/songs");
+    redirect("/songs");
+
+    return {
+        error: "",
+        success: true
+    };
 }
