@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { buySong } from "@/actions/storeActions";
+import { Spinner } from "./ui/spinner";
 
 interface BuyButtonProps {
     songId: number;
@@ -30,13 +31,12 @@ const BuyButton = ({ songId, price }: BuyButtonProps) => {
 
     return (
         <div 
-            className="absolute top-2 left-2 bg-yellow-500 text-black text-xs font-bold px-2 py-1 rounded-full shadow-md z-10 cursor-pointer hover:bg-yellow-400 transition-colors min-w-[70px] text-center"
+            className="absolute top-2 left-2 flex justify-center bg-yellow-500 text-black text-xs font-bold px-2 py-1 rounded-full shadow-md z-10 cursor-pointer hover:bg-yellow-400 transition-colors min-w-[70px] text-center"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
             onClick={handleBuy}
         >
-            
-            {isLoading ? "Buying..." : (isHovered ? "Buy" : `${price} credits`)}
+            {isLoading ? <Spinner /> : (isHovered ? "Buy" : `${price} credits`)}
         </div>
     );
 };
