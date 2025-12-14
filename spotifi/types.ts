@@ -21,7 +21,7 @@ export interface Song {
         publish_date: string;
         genre: string;
         type: string;
-        youtube: string;
+        youtube?: string;
     };
 }
 

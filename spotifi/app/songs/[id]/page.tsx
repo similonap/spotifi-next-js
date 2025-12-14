@@ -15,9 +15,9 @@ const SongsDetail = async (props: PageProps<"/songs/[id]">) => {
         notFound();
     }
 
-    const youtubeId = song.more_information.youtube.includes("v=") 
+    const youtubeId = song.more_information.youtube?.includes("v=") 
         ? song.more_information.youtube.split("v=")[1].split("&")[0]
-        : song.more_information.youtube.split("/").pop();
+        : song.more_information.youtube?.split("/").pop();
 
     return (
         <div className="flex min-h-screen bg-gradient-to-b from-[#1e1e1e] to-[#121212]">
@@ -122,7 +122,7 @@ const SongsDetail = async (props: PageProps<"/songs/[id]">) => {
                         </div>
                     </div>
 
-                    {/* YouTube Video Section */}
+                    {youtubeId && (
                     <div className="mb-8 overflow-hidden rounded-xl bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 p-[1px] shadow-2xl shadow-black/50">
                         <div className="overflow-hidden rounded-xl bg-neutral-950/80 p-6 backdrop-blur">
                             <div className="mb-4 flex items-center gap-3">
@@ -150,7 +150,7 @@ const SongsDetail = async (props: PageProps<"/songs/[id]">) => {
                             </div>
                         </div>
                     </div>
-
+                    )}
                   
                 </div>
             </main>

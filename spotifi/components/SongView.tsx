@@ -13,13 +13,16 @@ const SongView = ({ song }: SongViewProps) => {
                 <SongImageView song={song} />
             </div>
             <Link href={`/songs/${song.id}`}>
-                <h2 className="text-base font-bold mb-1 truncate" title={song.title}>{song.title}</h2>
-            </Link>
-            <p className="text-sm text-[#a7a7a7] line-clamp-2 mb-2" title={song.description}>{song.description}</p>
-            <div className="flex items-center justify-between text-xs text-[#a7a7a7] mt-auto">
-                <span>{song.more_information.genre}</span>
-                <span>{new Date(song.more_information.publish_date).getFullYear()}</span>
+            <div>
+                    <h2 className="text-base font-bold mb-1 truncate" title={song.title}>{song.title}</h2>
+                
+                <p className="text-sm text-[#a7a7a7] line-clamp-2 mb-2" title={song.description}>{song.description}</p>
+                <div className="flex items-center justify-between text-xs text-[#a7a7a7] mt-auto">
+                    <span>{song.more_information.genre}</span>
+                    <span>{new Date(song.more_information.publish_date).getFullYear()}</span>
+                </div>
             </div>
+            </Link>
         </div>
     )
 }

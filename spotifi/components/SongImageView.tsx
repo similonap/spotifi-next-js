@@ -18,7 +18,7 @@ const SongImageView = ({ song }: SongImageViewProps) => {
                 
                 width={200}
                 height={200}
-                className="w-full aspect-square object-contain rounded-md shadow-lg"
+                className="w-full aspect-square object-contain rounded-md"
             />
             <div className="absolute bottom-2 right-2">
                 <PlayButton song={song} />
