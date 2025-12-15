@@ -1,6 +1,7 @@
 "use client";
 
 import { login } from "@/actions/authActions"
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useActionState } from "react"
 
@@ -13,6 +14,10 @@ const LoginPage = () => {
         <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-[#1e1e1e] to-[#121212] p-6 text-white">
             <div className="w-full max-w-md overflow-hidden rounded-2xl bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 p-[1px] shadow-2xl shadow-black/60">
                 <div className="rounded-2xl bg-neutral-950/80 p-6 backdrop-blur">
+                    <div className="mb-5 flex flex-col items-center gap-2">
+                        <Image src="/slopifylogo.png" alt="Slopify logo" width={56} height={56} className="drop-shadow-lg" />
+                        <span className="text-lg font-semibold tracking-[0.35em] text-white">SLOPIFY</span>
+                    </div>
                     <h2 className="text-2xl font-bold">Login to your account</h2>
                     <p className="mt-1 text-sm text-neutral-400">
                         Enter your email below to login to your account

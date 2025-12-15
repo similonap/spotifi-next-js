@@ -32,7 +32,7 @@ export const buySong = async (songId: number) => {
 
     await updateUser(user.id, { credits: newCredits, library: newLibrary });
 
-    revalidatePath("/dashboard");
+    revalidatePath("/songs");
     return { success: true };
 }
 
